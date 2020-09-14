@@ -10,6 +10,7 @@ function startCode(){
 		document.getElementById('start').style.backgroundColor ="#d6d6d6";
 		document.getElementById('next').disabled = false;
 		document.getElementById('next').style.backgroundColor ="#229954";
+		document.getElementById("shw-n").style.visibility='visible';
 		document.getElementById("shw-n").innerHTML = num;
 		main();
 	}
@@ -66,16 +67,16 @@ function hightlight(){
 			document.getElementById('next').disabled = true;
 			document.getElementById('next').style.backgroundColor ="#d6d6d6";
 		}
-		if(id[count]=='two') document.querySelector('.stack').innerHTML += 1+"<br>";		
-		if(id[count]=='three') document.querySelector('.stack').innerHTML += 1+"<br>";
+		if(id[count]=='two') document.querySelector('#outerStack').innerHTML += "<div class='stack'>"+1+"<br>";		
+		if(id[count]=='three') document.querySelector('#outerStack').innerHTML += "<div class='stack'>"+1+"<br>";
 		if(id[count]=='four'){
-			document.querySelector('.fibo').innerHTML += "fib("+(ret[cf][0])+")<br>";
-			document.querySelector('.fibo').innerHTML += "fib("+(ret[cf][1])+")<br>";
+			document.querySelector('#outerStack').innerHTML += "<div class='stack'>fib("+(ret[cf][1])+")<br>";
+			document.querySelector('#outerStack').innerHTML += "<div class='stack'>fib("+(ret[cf][0])+")<br>";
 			cf++;
 		}
 		if(id[count]=='eight') {
-			document.querySelector('.stack').innerHTML = "";
-			document.querySelector('.fibo').innerHTML = "";
+			document.querySelector('#outerStack').innerHTML = "";
+			document.querySelector('#outerStack').innerHTML = "";
 		}
 		if(id[count]=='ten'){
 			if(countnine > 1){
