@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Simulator</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<div class="head">Recursion (Fibonacci Series)</div>
+	<div class="formula"><span class="for-cont" onclick="formula()">Formula</span> <span id="form" class="form">fib(n)	 = fib(n-1)+fib(n-2)</span></div>
+	<div class="container">
+		<div class="division div1">
+			<div class="heading">Initialize</div>
+			<div id="inputField">
+				<h4>Enter any number</h4>
+					<input id="number" type="number" required name="num" placeholder="Range 1-20"/><br>
+			</div>
+			<button type="button" id="start" onclick="startCode()" disabled>Start</button>
+			<br>
+			<button type="button" id="next" onclick="hightlight()">Next</button>
+			<br>
+			<button type="button" id="reset" onclick="location.reload()">Reset</button>
+		</div>
+		<div class="nab">
+			<h2>Num</h2>
+			<span id="shw-n"></span>
+			<h2 id="sa"><span id="shw-a"></span></h2>
+			<h2 id="sb"> <span id="shw-b"></span></h2>
+			<div class="stack"></div>
+			<div class="fibo"></div>
+		</div>
+		<div class="division div2">
+			<div class="heading">Step Execution</div>
+			<div id="code">
+				<div id="include">#include &lt;stdio.h&gt;</div>
+				<div id="functionDef">int fib(int n);</div>
+				<div id="five">void main() {</div>
+				<div id="six">int num, array[20], ele;</div>
+				<div id="seven">scanf("%d",&num);</div>
+				<div id="eight">for( int i=1 ; i <= num ; i++ ) {</div>
+				<div id="nine">ele = fib(i);</div>
+				<div id="ten">array[i-1]=ele;</div>
+				<div id="eleven">}</div>
+				<div id="twelve">}</div>
+				<div id="one">int fib(n) {</div>
+				<div id="two">if (n <= 1)
+					<br>
+					<span class="else">return n;</span>
+				</div>
+				<div id="three">
+					else if (n == 2)
+					<br>
+					<span class="else">return 1;</span>
+				</div>
+				<div id="four">
+					else
+					<br>
+					<span class="else">return fib(n-2) + fib(n-1);</span>
+				</div>
+				}
+			</div>
+		</div>
+	</div>
+	<div class="ot">
+		<div class="heading">Code Output</div>
+		<div class="cont">
+		</div>
+		<div id="res"></div>
+	</div>
+</body>
+</html>
