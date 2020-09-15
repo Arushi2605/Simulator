@@ -14,11 +14,11 @@
 			<div class="heading">Initialize</div>
 			<div id="inputField">
 				<h4>Enter any number</h4>
-					<input id="number" type="number" required name="num" placeholder="Range 1-20"/><br>
+					<input id="number" type="number" required name="num" placeholder="Range 1-20" onchange="startCode()"><br>
 			</div>
-			<button type="button" id="start" onclick="startCode()" disabled>Start</button>
+			<button type="button" id="start" onclick="start()">Start</button>
 			<br>
-			<button type="button" id="next" onclick="hightlight()">Next</button>
+			<button type="button" id="next" onclick="hightlight()" disabled>Next</button>
 			<br>
 			<button type="button" id="reset" onclick="location.reload()">Reset</button>
 		</div>
@@ -63,6 +63,8 @@
 				<div class="visual">
 					<div id="outerStack">
 						<div class="fibo"></div>
+					</div>
+					<div id="innerStack">
 						<div class="stack"></div>				
 					</div>
 				</div>
