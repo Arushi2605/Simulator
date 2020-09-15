@@ -132,13 +132,13 @@ h4{
 	display:none;
 }
 #start{
-	background-color: #d6d6d6;
+	background-color: #0D85C9;
 }
 #start:hover{
 	background-color: #0970AB;
 }
 #next{
-	background-color: #229954;
+	background-color: #d6d6d6;
 }
 .active:hover{
 	background-color: #0C833E;
@@ -163,21 +163,28 @@ h4{
 	border-left: 1px solid rgb(0,0,0);
 	width: 40%;
 	margin-left: 2%;
+	display: flex;
 }
 #outerStack{
-	/*display: flex;*/
-	margin: 5%;
-	transform: rotateX(180deg);
 	border: 1px solid #000;
 	border-bottom: none;
-}
-/*.fibo{
-	width: 50%;
+	width: 40%;
+	margin: 5%;
 	transform: rotateX(180deg);
+}
+#innerStack{
+	border: 1px solid #000;
+	border-bottom: none;
+	width: 40%;
+	margin: 5%;
+	transform: rotateX(180deg);
+}
+.fibo{	
+	transform: rotateX(180deg);	
 	border-bottom: 1px solid black;
 	text-align: center;
     padding: 3px 0px;
-}*/
+}
 .stack{
 	transform: rotateX(180deg);
 	border-bottom: 1px solid black;
@@ -185,6 +192,7 @@ h4{
     padding: 3px 0px;
 }
 #code{
+	visibility: hidden;
 	margin: 4% 5%;
 	width: 55%;
 }
