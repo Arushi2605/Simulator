@@ -261,6 +261,10 @@ h4{
 	font-size: 18px;
 	border-bottom:1px solid red;
 }
+.inputSpan{
+	color:red;
+	display:none;
+}
 @keyframes downnine {
 	from{
 		top: 0px;
@@ -294,24 +298,6 @@ h4{
 	}
 	to{
 		bottom:46px;
-		visibility: hidden;
-	}
-}
-@keyframes downfif {
-	from{
-		top: 0px;
-	}
-	to{
-		top:33px;
-		visibility: hidden;
-	}
-}
-@keyframes upfif {
-	from{
-		bottom: 0px;
-	}
-	to{
-		bottom:33px;
 		visibility: hidden;
 	}
 }
