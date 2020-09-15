@@ -49,7 +49,7 @@ var array=[],n,cf=0;
 function main(){
 	var num = Number(document.getElementById('number').value);
 	var i, fibonacci;
-	for(i=1; i<=num; i++){		
+	for(i=0; i<num; i++){		
 		id.push('eight');
 		id.push('nine');
 		fibonacci = fib(i);		
