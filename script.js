@@ -2,20 +2,30 @@ var width = 100;
 var ret=[];
 function startCode(){
 	var num = Number(document.getElementById('number').value);
+	document.getElementById('number').disabled = true;
 	width = width/(num) ;
-	if(Number.isNaN(num) || typeof num ==='string' || num<=0 || num>20) alert("Input Field is invalid");
+	if(Number.isNaN(num) || typeof num ==='string' || num<=0 || num>10 || !Number.isInteger(num)){
+		document.querySelector('.inputSpan').style.display = 'block';
+		document.getElementById('seven').style.color = 'black';
+		document.getElementById('next').disabled = true;
+		document.getElementById('next').style.backgroundColor ="#d6d6d6";
+	}
 	else{
+
+		document.querySelector(".nab").style.visibility = "visible";
 		document.getElementById('next').disabled = false;
 		document.getElementById('next').style.backgroundColor ="#229954";
 		document.getElementById("shw-n").style.visibility='visible';
 		document.getElementById("shw-n").innerHTML = num;
+		document.getElementById('seven').style.color = 'black';
 		main();
 	}
 }
 function start(){
+	document.getElementById('inputField').style.display = 'block';
+	document.getElementById('seven').style.color = 'red';
 	document.getElementById("code").style.visibility='visible';
-	document.getElementById('start').disabled = true;
-	document.getElementById('start').style.backgroundColor = "#d6d6d6";
+	document.getElementById('start').style.display = "none";
 	document.getElementById('next').disabled = false;
 	document.getElementById('next').style.backgroundColor ="#229954";
 }
@@ -49,7 +59,7 @@ function main(){
 	id.push("eleven");
 	id.push("twelve");
 }
-var count=0, id=['include','functionDef','five','six','seven'], countnine=0;
+var count=0, id=[], countnine=0;
 function hightlight(){
 	var num = Number(document.getElementById('number').value);
 	for(var i=0;i<count;i++){
@@ -57,10 +67,6 @@ function hightlight(){
 	}
 	if(count<id.length){
 		document.getElementById(id[count]).style.color = 'red';
-		if(id[count]=='six'){
-			document.querySelector(".nab").style.visibility = "visible";
-		}		
-		if(id[count]=='seven') document.getElementById("inputField").style.display = "block";
 		if(id[count]=='two') document.querySelector('#innerStack').innerHTML += "<div class='stack'>"+1+"<br>";		
 		if(id[count]=='three') document.querySelector('#innerStack').innerHTML += "<div class='stack'>"+1+"<br>";
 		if(id[count]=='four'){
@@ -73,6 +79,12 @@ function hightlight(){
 					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
 				}
 				//removing from top
+				else if(cf>7){
+					console.log("if bottom "+cf);
+					document.querySelector('.fibo').remove();
+					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][0])+")<br>";
+					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
+				}
 				else{
 					console.log("else top "+cf);
 					document.querySelector('.fibo:last-child').remove();
@@ -101,13 +113,10 @@ function hightlight(){
 				if(num <= 6){
 					document.querySelector(".a").style.animation = "down 1s";
 					document.querySelector(".b").style.animation = "up 1s";
-				}else if (num > 6 && num < 11){
-					document.querySelector(".a").style.animation = "downnine 1s";
-					document.querySelector(".b").style.animation = "upnine 1s";
 				}
 				else{
-					document.querySelector(".a").style.animation = "downfif 1s";
-					document.querySelector(".b").style.animation = "upfif 1s";
+					document.querySelector(".a").style.animation = "downnine 1s";
+					document.querySelector(".b").style.animation = "upnine 1s";
 				}
 				setTimeout(function (){
 					document.querySelector(".a").remove();
