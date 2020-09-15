@@ -102,7 +102,7 @@ function hightlight(){
 			document.querySelector('#outerStack').innerHTML = "";
 			document.querySelector('#innerStack').innerHTML = "";
 		}
-		if(id[count]=='ten'){
+		if(id[count]=='nine'){
 			if(countnine > 1){
 				var cont = document.querySelector(".cont");
 				document.getElementById("next").disabled = true;
