@@ -3,14 +3,12 @@ var ret=[];
 function startCode(){
 	var num = Number(document.getElementById('number').value);
 	width = width/(num) ;
-	if(Number.isNaN(num) || typeof num ==='string' || num<=0 || num>20)
-		alert("Input Field is invalid");
+	if(Number.isNaN(num) || typeof num ==='string' || num<=0 || num>20) alert("Input Field is invalid");
 	else{
 		document.getElementById('next').disabled = false;
 		document.getElementById('next').style.backgroundColor ="#229954";
 		document.getElementById("shw-n").style.visibility='visible';
 		document.getElementById("shw-n").innerHTML = num;
-		console.log("startcode");
 		main();
 	}
 }
@@ -34,16 +32,13 @@ function fib(n){
 	else{
 		id.push('four');
 		ret.push([(n-2),(n-1)]);
-		console.log((n-2),(n-1));
 		return fib(n-2) + fib(n-1);
 	}
 }
 var array=[],n,cf=0;
 function main(){
-	console.log("main");
 	var num = Number(document.getElementById('number').value);
 	var i, fibonacci;
-	console.log('main');
 	for(i=1; i<=num; i++){		
 		id.push('eight');
 		id.push('nine');
@@ -62,24 +57,33 @@ function hightlight(){
 	}
 	if(count<id.length){
 		document.getElementById(id[count]).style.color = 'red';
-		console.log(count,id[count]);
 		if(id[count]=='six'){
 			document.querySelector(".nab").style.visibility = "visible";
-			//document.getElementById("id").style.visibility = "visible";
 		}		
-		if(id[count]=='seven'){
-			document.getElementById("inputField").style.display = "block";
-			//id.push('eight');
-			// document.getElementById('start').disabled = false;
-			// document.getElementById('start').style.backgroundColor ="#0D85C9";
-			// document.getElementById('next').disabled = true;
-			// document.getElementById('next').style.backgroundColor ="#d6d6d6";
-		}
+		if(id[count]=='seven') document.getElementById("inputField").style.display = "block";
 		if(id[count]=='two') document.querySelector('#innerStack').innerHTML += "<div class='stack'>"+1+"<br>";		
 		if(id[count]=='three') document.querySelector('#innerStack').innerHTML += "<div class='stack'>"+1+"<br>";
 		if(id[count]=='four'){
-			document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][0])+")<br>";
-			document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
+			if(document.querySelector('#outerStack').innerHTML!=""){
+				//removing from bottom
+				if(cf>2 && cf<=5){
+					console.log("if bottom "+cf);
+					document.querySelector('.fibo').remove();
+					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][0])+")<br>";
+					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
+				}
+				//removing from top
+				else{
+					console.log("else top "+cf);
+					document.querySelector('.fibo:last-child').remove();
+					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][0])+")<br>";
+					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
+				}
+			}
+			else{
+				document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][0])+")<br>";
+				document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
+			}
 			cf++;
 		}
 		if(id[count]=='eight') {
@@ -112,7 +116,6 @@ function hightlight(){
 					document.querySelector(".cee").classList.remove("cee");
 					document.getElementById("next").disabled = false;
 				},1000);
-
 			}
 			else{
 				var cont = document.querySelector(".cont");
@@ -134,7 +137,6 @@ function hightlight(){
 			}
 			document.getElementById('res').innerHTML += array[countnine++];
 		}
-		console.log(id);
 		count++;
 	}
 	if(id[count]=="twelve"){
