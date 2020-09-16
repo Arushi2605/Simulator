@@ -3,7 +3,7 @@ var ret=[];
 function startCode(){
 	var num = Number(document.getElementById('number').value);
 	document.getElementById('number').disabled = true;
-	width = width/(num) ;
+	width = width/(num+1) ;
 	if(Number.isNaN(num) || typeof num ==='string' || num<=0 || num>5 || !Number.isInteger(num)){
 		document.querySelector('.inputSpan').style.display = 'block';
 		document.getElementById('seven').style.color = 'black';
