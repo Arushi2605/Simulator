@@ -31,11 +31,11 @@ function start(){
 }
 function fib(n){
 	id.push('one');
-	if(n <= 1){
+	if(n == 0){
 		id.push('two');
 		return n;
 	}
-	else if(n === 2){
+	else if(n == 1){
 		id.push('three');
 		return 1;
 	}
@@ -49,7 +49,7 @@ var array=[],n,cf=0;
 function main(){
 	var num = Number(document.getElementById('number').value);
 	var i, fibonacci;
-	for(i=0; i<num; i++){		
+	for(i=0; i<=num; i++){		
 		id.push('eight');
 		id.push('nine');
 		fibonacci = fib(i);		
@@ -62,12 +62,12 @@ function main(){
 var count=0, id=[], countnine=0;
 function hightlight(){
 	var num = Number(document.getElementById('number').value);
-	for(var i=0;i<count;i++){
+	for(var i=0;i<=count;i++){
 		document.getElementById(id[i]).style.color='black';
 	}
 	if(count<id.length){
 		document.getElementById(id[count]).style.color = 'red';
-		if(id[count]=='two') document.querySelector('#innerStack').innerHTML += "<div class='stack'>"+1+"<br>";		
+		if(id[count]=='two') document.querySelector('#innerStack').innerHTML += "<div class='stack'>"+0+"<br>";		
 		if(id[count]=='three') document.querySelector('#innerStack').innerHTML += "<div class='stack'>"+1+"<br>";
 		if(id[count]=='four'){
 			if(document.querySelector('#outerStack').innerHTML!=""){
@@ -79,11 +79,19 @@ function hightlight(){
 					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
 				}
 				//removing from top
-				else if(cf>7){
-					console.log("if bottom "+cf);
-					document.querySelector('.fibo').remove();
-					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][0])+")<br>";
-					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
+				else if(cf>7 && cf<11){
+					if(cf%2==0){
+						console.log("if bottom "+cf);
+						document.querySelector('.fibo').remove();
+						document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][0])+")<br>";
+						document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
+					}
+					else{
+						console.log("if bottom:last-child"+cf);
+						document.querySelector('.fibo:last-child').remove();
+						document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][0])+")<br>";
+						document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
+					}
 				}
 				else{
 					console.log("else top "+cf);
@@ -106,7 +114,7 @@ function hightlight(){
 			if(countnine > 1){
 				var cont = document.querySelector(".cont");
 				document.getElementById("next").disabled = true;
-				cont.innerHTML += '<div class="some" style = "width:'+width+'%"><div class="fib">Fib('+(countnine+1)+')</div><div class="a"><b>fib('+(countnine - 1)+')</b></div>	<div class="b"><b>fib('+(countnine)+')</b></div><div class="c cee"><b>'+array[countnine]+'</b></div>	</div>';
+				cont.innerHTML += '<div class="some" style = "width:'+width+'%"><div class="fib">Fib('+(countnine)+')</div><div class="a"><b>fib('+(countnine - 2)+')</b></div>	<div class="b"><b>fib('+(countnine-1)+')</b></div><div class="c cee"><b>'+array[countnine]+'</b></div>	</div>';
 
 				document.getElementById("shw-a").innerHTML = "fib("+(countnine - 1)+") = "+ array[countnine - 2];
 				document.getElementById("shw-b").innerHTML = "fib("+(countnine)+") = "+ array[countnine - 1];
@@ -131,13 +139,13 @@ function hightlight(){
 				document.getElementById("next").disabled = true;
 				if(countnine==0){
 					document.getElementById("sa").style.display='block';
-					document.getElementById("shw-a").innerHTML = "fib("+(countnine + 1) +") = "+ array[countnine];
+					document.getElementById("shw-a").innerHTML = "fib("+(countnine) +") = "+ array[countnine];
 				}
 				else{
 					document.getElementById("sb").style.display='block';
-					document.getElementById("shw-b").innerHTML = "fib("+(countnine + 1 )+") = "+ array[countnine];
+					document.getElementById("shw-b").innerHTML = "fib("+(countnine)+") = "+ array[countnine];
 				}
-				cont.innerHTML += '<div class="some" style = "width:'+width+'%"><div class="fib">Fib('+(countnine+1)+')</div>  <div class="c cee"><b>'+array[countnine]+'</b></div>	</div>';
+				cont.innerHTML += '<div class="some" style = "width:'+width+'%"><div class="fib">Fib('+(countnine)+')</div>  <div class="c cee"><b>'+array[countnine]+'</b></div>	</div>';
 				setTimeout(function (){
 					document.getElementById("next").disabled = false;
 					document.querySelector(".cee").style.visibility = "visible";
