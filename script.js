@@ -61,6 +61,10 @@ function main(){
 }
 var count=0, id=[], countnine=0;
 function hightlight(){
+	setTimeout(function(){ 
+		document.getElementById('next').style.backgroundColor='#229954'; }, 100);
+	document.getElementById('next').style.backgroundColor='#0F7038';
+	var num = Number(document.getElementById('number').value);
 	var num = Number(document.getElementById('number').value);
 	for(var i=0;i<=count;i++){
 		document.getElementById(id[i]).style.color='black';
