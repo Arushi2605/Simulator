@@ -39,18 +39,18 @@
 					<div id="five">void main() {</div>
 					<div id="six">int num, array[20], ele;</div>
 					<div id="seven">scanf("%d",&num);</div>
-					<div id="eight">for( int i=0 ; i < num ; i++ ) {</div>
+					<div id="eight">for( int i=0 ; i <= num ; i++ ) {</div>
 					<div id="nine">array[i-1]= fib(i);</div>
 					<div id="ten">printf("%d",array[i-1]);</div>
 					<div id="eleven">}</div>
 					<div id="twelve">}</div>
 					<div id="one">int fib(n) {</div>
-					<div id="two">if (n <= 1)
+					<div id="two">if (n == 0)
 						<br>
 						<span class="else">return n;</span>
 					</div>
 					<div id="three">
-						else if (n == 2)
+						else if (n == 1)
 						<br>
 						<span class="else">return 1;</span>
 					</div>
