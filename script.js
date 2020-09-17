@@ -4,7 +4,7 @@ function startCode(){
 	var num = Number(document.getElementById('number').value);
 	document.getElementById('number').disabled = true;
 	width = width/(num+1) ;
-	if(Number.isNaN(num) || typeof num ==='string' || num<=0 || num>5 || !Number.isInteger(num)){
+	if(Number.isNaN(num) || typeof num ==='string' || num<=0 || num>7 || !Number.isInteger(num)){
 		document.querySelector('.inputSpan').style.display = 'block';
 		document.getElementById('seven').style.color = 'black';
 		document.getElementById('next').disabled = true;
@@ -65,7 +65,6 @@ function hightlight(){
 		document.getElementById('next').style.backgroundColor='#229954'; }, 100);
 	document.getElementById('next').style.backgroundColor='#0F7038';
 	var num = Number(document.getElementById('number').value);
-	var num = Number(document.getElementById('number').value);
 	for(var i=0;i<=count;i++){
 		document.getElementById(id[i]).style.color='black';
 	}
@@ -75,47 +74,58 @@ function hightlight(){
 		if(id[count]=='three') document.querySelector('#innerStack').innerHTML += "<div class='stack'>"+1+"<br>";
 		if(id[count]=='four'){
 			if(document.querySelector('#outerStack').innerHTML!=""){
-				//removing from bottom
 				if(cf>2 && cf<=5){
-					console.log("if bottom "+cf);
 					document.querySelector('.fibo').remove();
 					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][0])+")<br>";
 					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
 				}
-				//removing from top
 				else if(cf==8){
-					console.log("if c=8bottom "+cf);
 					document.querySelector('.fibo').remove();
 					document.querySelector('#outerStack').innerHTML += "<div class='out'><div class='fibo'>fib("+(ret[cf][0])+")<br>";
 					document.querySelector('#outerStack').innerHTML += "<div class='out'><div class='fibo'>fib("+(ret[cf][1])+")<br>";
 				}
-				else if(cf==9 || cf==13){
-					console.log("if c=9 "+cf);
+				else if(cf==9 || cf==13||cf==18||cf==21||cf==25||cf==29||cf==33){
 					document.querySelector('.out:last-child').remove();
 					document.querySelector('#outerStack').innerHTML += "<div class='out'><div class='fibo'>fib("+(ret[cf][0])+")<br>";
 					document.querySelector('#outerStack').innerHTML += "<div class='out'><div class='fibo'>fib("+(ret[cf][1])+")<br>";
 				}
-				else if(cf==10){
-					console.log("cf>=10 else"+cf)
+				else if(cf==10 ||cf==15||cf==19||cf==27||cf==34){
 					document.querySelector('.fibo').remove();
 					document.querySelector('#outerStack').innerHTML += "<div class='outS'><div class='fibo'>fib("+(ret[cf][0])+")<br>";
 					document.querySelector('#outerStack').innerHTML += "<div class='outS'><div class='fibo'>fib("+(ret[cf][1])+")<br>";
 				}
-				else if(cf==11 || cf==12){
-					console.log("cf>=10 else"+cf)
+				else if(cf==11 || cf==12||cf==16||cf==17||cf==20||cf==23||cf==24||cf==28||cf==31||cf==32){
 					document.querySelector('.outS').remove();
 					document.querySelector('#outerStack').innerHTML += "<div class='out'><div class='fibo'>fib("+(ret[cf][0])+")<br>";
 					document.querySelector('#outerStack').innerHTML += "<div class='out'><div class='fibo'>fib("+(ret[cf][1])+")<br>";
 				}
+				else if(cf==22||cf==30||cf==39||cf==42||cf==43){
+					document.querySelector('.outS').remove();
+					document.querySelector('#outerStack').innerHTML += "<div class='outS'><div class='fibo'>fib("+(ret[cf][0])+")<br>";
+					document.querySelector('#outerStack').innerHTML += "<div class='outS'><div class='fibo'>fib("+(ret[cf][1])+")<br>";
+				}
+				else if(cf==35||cf==40||cf==44){
+					document.querySelector('.outS').remove();
+					document.querySelector('#outerStack').innerHTML += "<div class='outC'><div class='fibo'>fib("+(ret[cf][0])+")<br>";
+					document.querySelector('#outerStack').innerHTML += "<div class='outC'><div class='fibo'>fib("+(ret[cf][1])+")<br>";
+				}
+				else if(cf==36||cf==37){
+					document.querySelector('.outC').remove();
+					document.querySelector('#outerStack').innerHTML += "<div class='outC'><div class='fibo'>fib("+(ret[cf][0])+")<br>";
+					document.querySelector('#outerStack').innerHTML += "<div class='outC'><div class='fibo'>fib("+(ret[cf][1])+")<br>";
+				}
+				else if(cf==38||cf==41||cf==45){
+					document.querySelector('.outC:last-child').remove();
+					document.querySelector('#outerStack').innerHTML += "<div class='outC'><div class='fibo'>fib("+(ret[cf][0])+")<br>";
+					document.querySelector('#outerStack').innerHTML += "<div class='outC'><div class='fibo'>fib("+(ret[cf][1])+")<br>";
+				}
 				else{
-					console.log("else lastchild top "+cf);
 					document.querySelector('.fibo:last-child').remove();
 					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][0])+")<br>";
 					document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
 				}
 			}
 			else{
-				console.log("last else"+cf)
 				document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][0])+")<br>";
 				document.querySelector('#outerStack').innerHTML += "<div class='fibo'>fib("+(ret[cf][1])+")<br>";
 			}
